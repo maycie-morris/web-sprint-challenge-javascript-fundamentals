@@ -23,11 +23,17 @@ The zoos want to display both the scientific name and the animal name in front o
 
 const displayNames = []
 
-const whatever = zooAnimals.forEach(function (item) {
-  return displayNames.push(item.animal_name + item.scientific_name)
+// const whatever = zooAnimals.forEach(function (item) {
+//   return displayNames.push(`Name: ${item.animal_name} Scientific: ${item.scientific_name}`)
+// })
+
+// console.log(displayNames);
+
+const scientificNames = zooAnimals.forEach(item => {
+  return displayNames.push(`Name: ${item.animal_name} Scientific: ${item.scientific_name}`)
 })
 
-console.log(displayNames);
+console.log(displayNames)
 
 
 /* Request 2: .map()
@@ -36,9 +42,15 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames = zooAnimals.map(function (item) {
-  return item.animal_name.toLowerCase();
-});
+// const lowCaseAnimalNames = zooAnimals.map(function (item) {
+//   return item.animal_name.toLowerCase();
+// });
+
+
+
+const lowCaseAnimalNames = zooAnimals.map(item => {
+  return item.animal_name.toLocaleLowerCase()
+})
 
 console.log(lowCaseAnimalNames);
 
@@ -48,9 +60,9 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 
-const lowPopulationAnimals = zooAnimals.filter(function (item) {
-  return item.population < 5
-});
+const lowPopulationAnimals = zooAnimals.filter(item => {
+  return item.population < 5})
+
 
 console.log(lowPopulationAnimals);
 
@@ -60,9 +72,8 @@ The zoos need to know their total animal population across the United States. Fi
 
 */
 
-let populationTotal = zooAnimals.reduce(function(accumulator, item){
-  return accumulator += item.population;
-},0);
+let populationTotal = zooAnimals.reduce((accumulator, item) => {
+  return accumulator += item.population },0);
 
 console.log(populationTotal);
 
@@ -104,4 +115,7 @@ const greeting = (firstName, lastName) => `Hello ${firstName} ${lastName}, nice 
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
 
 */
+
+
+
 
