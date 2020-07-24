@@ -18,7 +18,19 @@ myFunction();
 
 // Explanation: 
 
+// Nested function can access the variable internal because they are both within the lexical scope of the function myFunction.
 
 /* Task 2: Counter */
 
 /* Create a function called `summation` that accepts a parameter and uses a counter to return the summation of that number. For example, `summation(4)` should return 10 because 1+2+3+4 is 10. */
+
+
+function numberSum(n) {
+  var total = 0;
+    for(var i = 1; i <= n; i++){
+      total += i;
+    }
+    return total;
+}
+
+console.log(numberSum(4))
